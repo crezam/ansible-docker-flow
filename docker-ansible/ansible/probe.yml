@@ -1,0 +1,4 @@
+- name: Probe Host
+  hosts: localhost
+  connection: local
+  gather_facts: no
