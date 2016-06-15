@@ -10,3 +10,14 @@ RUN apt-get update -qy && \
     apt-add-repository -y ppa:ansible/ansible && \
     apt-get update -qy && \
     apt-get install -qy ansible
+
+# Copy playbook
+COPY ansible /ansible
+
+# Add volume for Ansible playbooks
+VOLUME /ansible
+WORKDIR /ansible
+
+# Entrypoint
+ENTRYPOINT ["ansible-playbook"]
+CMD ["site.yml"]
